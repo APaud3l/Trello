@@ -21,5 +21,3 @@ user_schema = UserSchema(exclude=["password"])
 
 # to handle a list of user objects
 users_schema = UserSchema(many=True, exclude=["password"])
-
-x = 1
