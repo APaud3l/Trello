@@ -67,9 +67,9 @@ def delete_card(card_id):
     # check whether the user is admin or not
     # is_admin = authorise_as_admin()
     # if not admin
-    if not is_admin:
-        # return error message
-        return {"error": "User is not authorized to perform this action."}
+    # if not is_admin:
+    #     # return error message
+    #     return {"error": "User is not authorized to perform this action."}
 
     # fetch the card from the database
     stmt = db.select(Card).filter_by(id=card_id)
@@ -99,10 +99,10 @@ def update_card(card_id):
     # is_admin = authorise_as_admin()
     # if the card exists
     if card:
-        # if the user is not the owner of the card
-        if not is_admin and str(card.user_id) != get_jwt_identity():
-            # return error message
-            return {"error": "Cannot perform this operation. Only owners are allowed to execute this operation."}
+    #     # if the user is not the owner of the card
+    #     if not is_admin and str(card.user_id) != get_jwt_identity():
+    #         # return error message
+    #         return {"error": "Cannot perform this operation. Only owners are allowed to execute this operation."}
 
         # update the fields as required
         card.title = body_data.get("title") or card.title
